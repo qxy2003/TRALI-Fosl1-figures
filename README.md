@@ -13,7 +13,7 @@ The per-cell values are derived results and can be analyzed within their release
 
 ## Download and run
 
-Download the figure-source archive if viewing the GitHub repository landing page. Extract it and open a terminal in the folder containing `redraw.R` and `verify.py`. For an unpacked checkout, use the same folder.
+[Download the repository ZIP](https://github.com/qxy2003/TRALI-Fosl1-figures/archive/refs/heads/main.zip) or clone the repository. Extract the ZIP and open a terminal in the folder containing `redraw.R` and `verify.py`.
 
 Keep UTF-8 file and directory names. The commands below assume R and Python with the packages already installed. The verified environment was Windows, using R 4.5.2, SCP 0.5.6, Seurat 5.5.0, ggplot2 4.0.1 and Cairo. Full R package versions are in `environment/figure1.txt`, `figure2.txt`, and `figure3.txt`. The marker-dot helper requires SCP 0.5.6.
 

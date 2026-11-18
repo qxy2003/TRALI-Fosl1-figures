@@ -1,0 +1,67 @@
+"Sample","Subtype","cells","Group","percent"
+"C1","gCap",213,"Control",39.5176252319109
+"C2","gCap",470,"Control",45.6310679611651
+"C3","gCap",1444,"Control",55.1987767584098
+"L1","gCap",715,"LPS",52.2279035792549
+"L2","gCap",1270,"LPS",55.4585152838428
+"L3","gCap",439,"LPS",48.9409141583055
+"L4","gCap",182,"LPS",37.0672097759674
+"T1","gCap",474,"TRALI",52.1452145214521
+"T2","gCap",280,"TRALI",34.7394540942928
+"T3","gCap",666,"TRALI",55.2697095435685
+"T4","gCap",86,"TRALI",33.59375
+"C1","aCap",240,"Control",44.5269016697588
+"C2","aCap",446,"Control",43.3009708737864
+"C3","aCap",952,"Control",36.3914373088685
+"L1","aCap",561,"LPS",40.9788166544923
+"L2","aCap",777,"LPS",33.9301310043668
+"L3","aCap",386,"LPS",43.0323299888517
+"L4","aCap",244,"LPS",49.6945010183299
+"T1","aCap",343,"TRALI",37.7337733773377
+"T2","aCap",223,"TRALI",27.6674937965261
+"T3","aCap",447,"TRALI",37.0954356846473
+"T4","aCap",128,"TRALI",50
+"C1","Arterial",30,"Control",5.56586270871985
+"C2","Arterial",40,"Control",3.88349514563107
+"C3","Arterial",129,"Control",4.93119266055046
+"L1","Arterial",40,"LPS",2.9218407596786
+"L2","Arterial",106,"LPS",4.62882096069869
+"L3","Arterial",40,"LPS",4.45930880713489
+"L4","Arterial",22,"LPS",4.4806517311609
+"T1","Arterial",34,"TRALI",3.74037403740374
+"T2","Arterial",83,"TRALI",10.2977667493797
+"T3","Arterial",37,"TRALI",3.07053941908714
+"T4","Arterial",13,"TRALI",5.078125
+"C1","Pulmonary venous",8,"Control",1.48423005565863
+"C2","Pulmonary venous",13,"Control",1.2621359223301
+"C3","Pulmonary venous",62,"Control",2.37003058103976
+"L1","Pulmonary venous",35,"LPS",2.55661066471877
+"L2","Pulmonary venous",94,"LPS",4.10480349344978
+"L3","Pulmonary venous",22,"LPS",2.45261984392419
+"L4","Pulmonary venous",29,"LPS",5.90631364562118
+"T1","Pulmonary venous",32,"TRALI",3.52035203520352
+"T2","Pulmonary venous",175,"TRALI",21.712158808933
+"T3","Pulmonary venous",31,"TRALI",2.57261410788382
+"T4","Pulmonary venous",15,"TRALI",5.859375
+"C1","Lymphatic",44,"Control",8.16326530612245
+"C2","Lymphatic",52,"Control",5.04854368932039
+"C3","Lymphatic",14,"Control",0.535168195718654
+"L1","Lymphatic",6,"LPS",0.43827611395179
+"L2","Lymphatic",28,"LPS",1.22270742358079
+"L3","Lymphatic",6,"LPS",0.668896321070234
+"L4","Lymphatic",10,"LPS",2.03665987780041
+"T1","Lymphatic",21,"TRALI",2.31023102310231
+"T2","Lymphatic",22,"TRALI",2.72952853598015
+"T3","Lymphatic",21,"TRALI",1.74273858921162
+"T4","Lymphatic",5,"TRALI",1.953125
+"C1","Capillary, unresolved",4,"Control",0.742115027829313
+"C2","Capillary, unresolved",9,"Control",0.87378640776699
+"C3","Capillary, unresolved",15,"Control",0.573394495412844
+"L1","Capillary, unresolved",12,"LPS",0.876552227903579
+"L2","Capillary, unresolved",15,"LPS",0.655021834061135
+"L3","Capillary, unresolved",4,"LPS",0.445930880713489
+"L4","Capillary, unresolved",4,"LPS",0.814663951120163
+"T1","Capillary, unresolved",5,"TRALI",0.55005500550055
+"T2","Capillary, unresolved",23,"TRALI",2.85359801488834
+"T3","Capillary, unresolved",3,"TRALI",0.24896265560166
+"T4","Capillary, unresolved",9,"TRALI",3.515625

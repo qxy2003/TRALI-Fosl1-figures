@@ -9,8 +9,8 @@ import numpy as np
 import pandas as pd
 
 root=Path(__file__).resolve().parents[1]
-data=root/"分析结果"
-dest=root/"作图代码/intermediate"
+data=root/"data"
+dest=root/"plot/intermediate"
 dest.mkdir(parents=True,exist_ok=True)
 (root/"figure").mkdir(exist_ok=True)
 W,H=11.1,9.65

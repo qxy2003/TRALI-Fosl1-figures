@@ -10,13 +10,13 @@ import numpy as np
 import pandas as pd
 
 root=Path(__file__).resolve().parents[1]
-dest=root/"作图代码/intermediate/4C"
+dest=root/"plot/intermediate/4C"
 dest.mkdir(parents=True,exist_ok=True)
 ink="#24323A";soft="#57666D"
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":8,"text.color":ink,
                     "axes.labelcolor":ink,"axes.edgecolor":"#94A1A4","axes.linewidth":.6,
                     "xtick.color":soft,"ytick.color":ink,"pdf.fonttype":42})
-specs=[("gCap","4C_拟时序",(-6.4,5.6),(-7.5,3.5)),("aCap","4C_aCap",(-5.9,6.1),(-2.1,8.9))]
+specs=[("gCap","4C_gCap",(-6.4,5.6),(-7.5,3.5)),("aCap","4C_aCap",(-5.9,6.1),(-2.1,8.9))]
 seq=colors.LinearSegmentedColormap.from_list("pseudotime",["#DCEBF2","#97C7E0","#6398C6","#7073AF","#613F88","#3F205E"])
 div=colors.LinearSegmentedColormap.from_list("signed",["#A85D94","#DBB5D3","#F1F1EB","#ACD4BF","#4D9474"])
 W,H=11.1,5.65
@@ -33,7 +33,7 @@ seq_norm=colors.Normalize(0,1)
 tables={}
 primary_rows=[]
 for tag,sub,xlim,ylim in specs:
-    folder=root/"分析结果"/sub
+    folder=root/"data"/sub
     m=pd.read_csv(folder/"observed_cell_pseudotime.csv.gz")
     g=pd.read_csv(folder/"grid_reference_and_fields.csv")
     b=pd.read_csv(folder/"baseline_by_mouse.csv").query("method=='scTour_0'").copy()

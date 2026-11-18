@@ -9,7 +9,7 @@ import pandas as pd
 
 root=Path(__file__).resolve().parents[1]
 out=root/"figure"
-data=root/"分析结果"
+data=root/"data"
 ink="#202E34";muted="#53646B";rule="#D6DEE0"
 red="#DE2D26";blue="#4285BC"
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":8,"text.color":ink,

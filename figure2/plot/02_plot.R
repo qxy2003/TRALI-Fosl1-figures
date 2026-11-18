@@ -1,9 +1,9 @@
-# Run at the Figure 2 package root. All scientific inputs are in 分析结果/.
+# Run at the Figure 2 package root. All scientific inputs are in data/.
 if (.Platform$OS.type == "windows") invisible(Sys.setlocale("LC_ALL","English_United States.utf8"))
 options(Seurat.object.assay.version="v3", digits=15, device=function(...) grDevices::pdf(NULL))
 suppressPackageStartupMessages({library(Seurat); library(SCP); library(ggplot2); library(cowplot);
   library(SCENIC); library(AUCell); library(SummarizedExperiment)})
-input <- "分析结果"
+input <- "data"
 out <- "figure"
 dir.create(out,showWarnings=FALSE)
 source("../plot_helpers.R",encoding="UTF-8")

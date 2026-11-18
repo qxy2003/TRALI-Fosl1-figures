@@ -8,12 +8,12 @@ from matplotlib.backends.backend_pdf import PdfPages
 import pandas as pd
 
 root = Path(__file__).resolve().parents[1]
-dest = root / "作图代码" / "intermediate" / "4C"
+dest = root / "plot" / "intermediate" / "4C"
 dest.mkdir(parents=True, exist_ok=True)
 for subtype, folder, xlim, ylim in [
-    ("gCap","4C_拟时序",(-6.4,5.6),(-7.5,3.5)),
+    ("gCap","4C_gCap",(-6.4,5.6),(-7.5,3.5)),
     ("aCap","4C_aCap",(-5.9,6.1),(-2.1,8.9))]:
-    grid = pd.read_csv(root / "分析结果" / folder / "grid_reference_and_fields.csv")
+    grid = pd.read_csv(root / "data" / folder / "grid_reference_and_fields.csv")
     flow = grid.loc[grid["visible"]]
     assert len(flow) > 0 and flow["ref_supported"].all()
     with PdfPages(dest / f"{subtype}_arrows.pdf") as pdf:

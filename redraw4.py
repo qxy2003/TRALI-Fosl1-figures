@@ -10,4 +10,4 @@ args=parser.parse_args()
 root=Path(__file__).resolve().parent
 for script in ("layout","capillary_points","plot_4C","draw_arrows","assemble"):
     executable=args.assembly_python if script=="assemble" else sys.executable
-    subprocess.run([executable, str(root/"figure4"/"作图代码"/(script+".py"))],cwd=root,check=True)
+    subprocess.run([executable, str(root/"figure4"/"plot"/(script+".py"))],cwd=root,check=True)

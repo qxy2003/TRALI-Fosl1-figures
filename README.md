@@ -11,11 +11,15 @@ This release redraws Figures 1–4 from processed figure data. Figure 4 is the v
 
 The per-cell values are derived results and can be analyzed within their released scope. The release supports redrawing the figures and checking selected mouse-level comparisons. QC, clustering, normalization from counts, differential expression from counts, network inference, perturbation and pseudotime fitting were performed upstream. Plotting functions that require a Seurat container use an explicitly artificial constant layer for layout; biological values come from the source tables. Marker dot plots use the supplied groups' observed means and detection percentages.
 
+## Repository layout
+
+Each figure has a folder named `figure1` through `figure4`. Its `data/` directory contains the processed tables and its `plot/` directory contains the plotting scripts. Files ending in `.csv.gz` are gzip-compressed CSV tables. The two `figure4/data/4C_*` directories contain the general capillary (`4C_gCap`) and aerocyte (`4C_aCap`) pseudotime data.
+
 ## Download and run
 
 [Download the repository ZIP](https://github.com/qxy2003/TRALI-Fosl1-figures/archive/refs/heads/main.zip) or clone the repository. Extract the ZIP and open a terminal in the folder containing `redraw.R` and `verify.py`.
 
-Keep UTF-8 file and directory names. The commands below assume R and Python with the packages already installed. The verified environment was Windows, using R 4.5.2, SCP 0.5.6, Seurat 5.5.0, ggplot2 4.0.1 and Cairo. Full R package versions are in `environment/figure1.txt`, `figure2.txt`, and `figure3.txt`. The marker-dot helper requires SCP 0.5.6.
+The commands below assume R and Python with the packages already installed. The verified environment was Windows, using R 4.5.2, SCP 0.5.6, Seurat 5.5.0, ggplot2 4.0.1 and Cairo. Full R package versions are in `environment/figure1.txt`, `figure2.txt`, and `figure3.txt`. The marker-dot helper requires SCP 0.5.6.
 
 ~~~sh
 python verify.py

@@ -10,7 +10,7 @@ verify_welch <- function(values, estimate, p, low, high) {
   stopifnot(max(abs(c(mean(treated)-mean(control)-estimate, fit$p.value-p,
                       fit$conf.int-c(low,high)))) < 1e-10)
 }
-dir1 <- "figure1/分析结果/endothelial_scores"
+dir1 <- "figure1/data/endothelial_scores"
 values <- read_data(dir1, "test_mouse_values.csv")
 tests <- read_data(dir1, "TRALI_vs_LPS.csv")
 stopifnot(nrow(tests) == 6L)
@@ -19,7 +19,7 @@ for (i in seq_len(nrow(tests))) {
   verify_welch(values[values$module == r$module,], r$mean_difference,
                r$p_value, r$CI95_low, r$CI95_high)
 }
-dir2 <- "figure2/分析结果"
+dir2 <- "figure2/data"
 values <- read_data(dir2, "boxplot_test_mouse_values.csv")
 tests <- read_data(dir2, "boxplot_significance.csv")
 stopifnot(nrow(tests) == 9L)
@@ -29,7 +29,7 @@ for (i in seq_len(nrow(tests))) {
   verify_welch(values[keep,], r$estimate, r$p, r$CI_low, r$CI_high)
 }
 cat("Figures 1 and 2: all 15 Welch contrasts and confidence intervals match.\n")
-dir4 <- "figure4/分析结果"
+dir4 <- "figure4/data"
 s <- read.csv(file.path(dir4,"4E_pathways_by_mouse.csv"))
 t <- read.csv(file.path(dir4,"4E_paired_tests.csv"))
 stopifnot(!anyDuplicated(s[c("module","mouse")]),nrow(t)==6L,

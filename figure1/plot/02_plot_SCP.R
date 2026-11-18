@@ -1,12 +1,12 @@
-# Run from the Figure 1 package root. The only data inputs are in 分析结果.
+# Run from the Figure 1 package root. The only data inputs are in data.
 if (.Platform$OS.type == "windows") invisible(Sys.setlocale("LC_CTYPE", "English_United States.utf8"))
 options(Seurat.object.assay.version = "v3", digits = 15, device = function(...) grDevices::pdf(NULL))
 suppressPackageStartupMessages({library(Seurat); library(SCP); library(ggplot2); library(cowplot)})
 out <- "figure"
 dir.create(out, showWarnings = FALSE)
 source("../plot_helpers.R", encoding = "UTF-8")
-point <- read.csv("分析结果/lung_points.csv.gz")
-order_table <- read.csv("分析结果/marker_order.csv")
+point <- read.csv("data/lung_points.csv.gz")
+order_table <- read.csv("data/marker_order.csv")
 lineages <- unique(order_table$lineage)
 r <- list(metadata = point[c("Sample","broad")],
           markers = split(order_table$gene, factor(order_table$lineage, levels=lineages)))
@@ -39,7 +39,7 @@ b <- SCP::CellStatPlot(lung, stat.by = "Lineage", group.by = "Sample", plot_type
     stat_type = "percent", position = "stack", palcolor = pal, bg_alpha = 0,
     label = FALSE, NA_stat = FALSE, title = NULL, xlab = NULL, ylab = "Recovered cells (%)")
 # Verify every plotted stack against the independently tabulated percentages.
-tab <- read.csv("分析结果/composition_by_mouse.csv")
+tab <- read.csv("data/composition_by_mouse.csv")
 tab$Lineage <- short[match(tab$lineage, levels(r$metadata$broad))]
 matched <- merge(b$data, tab, by = c("Sample", "Lineage"))
 stopifnot(nrow(matched) == nrow(tab), max(abs(100 * matched$value - matched$percent)) < 1e-8)
@@ -66,7 +66,7 @@ ComplexHeatmap::ht_opt(legend_title_gp = grid::gpar(fontsize = 8, fontface = "bo
 # SCP suppresses its extra class strip and legend for a grouping named All.groups.
 # Preserve the lineage factor so the rows and their labels still identify every class.
 lung$All.groups <- lung$Lineage
-ref <- read.csv("分析结果/lineage_marker_summary.csv")
+ref <- read.csv("data/lineage_marker_summary.csv")
 ref$label <- short[match(ref$identity, levels(r$metadata$broad))]
 hm <- dot_from_summary(ref, selected, short, assay = "RNA",
     slot = "data", aggregate_fun = mean, exp_method = "raw", exp_cutoff = 0, lib_normalize = FALSE,
@@ -76,18 +76,18 @@ hm <- dot_from_summary(ref, selected, short, assay = "RNA",
     show_row_names = TRUE, show_column_names = TRUE, column_names_rot = 50,
     cluster_rows = FALSE, cluster_columns = FALSE, use_raster = FALSE,
     exp_legend_title = "Mean log RNA", heatmap_palcolor = c("#FFF5F0", "#FC9272", "#DE2D26", "#80000F"),
-    limits = c(0, ceiling(max(read.csv("分析结果/lineage_marker_summary.csv")$mean_log_RNA))),
+    limits = c(0, ceiling(max(read.csv("data/lineage_marker_summary.csv")$mean_log_RNA))),
     ht_params = list(row_names_gp = grid::gpar(fontsize = 8.5),
                      column_names_gp = grid::gpar(fontsize = 8.5, fontface = "italic")))
 cplot <- hm$plot
-ref <- read.csv("分析结果/lineage_marker_summary.csv")
+ref <- read.csv("data/lineage_marker_summary.csv")
 mat <- hm$matrix_list[[1]]
 ix <- cbind(match(ref$gene, rownames(mat)), match(short[match(ref$identity, levels(r$metadata$broad))], colnames(mat)))
 stopifnot(!anyNA(ix), max(abs(mat[ix] - ref$mean_log_RNA)) < 1e-8)
 
 # D: one column per endothelial pseudobulk library, ordered by condition and mouse.
-rows <- read.csv("分析结果/heatmap_z.csv",row.names="gene")
-samples <- read.csv("分析结果/heatmap_samples.csv",row.names="Sample")
+rows <- read.csv("data/heatmap_z.csv",row.names="gene")
+samples <- read.csv("data/heatmap_samples.csv",row.names="Sample")
 animals <- rownames(samples); de_genes <- rownames(rows)
 bulk <- list(z=as.matrix(rows[,animals]),samples=samples,selected=rows["direction"])
 mouse_obj <- plot_shell(de_genes,animals,samples)
@@ -108,8 +108,8 @@ displayed <- dfit$matrix_list[[1]]
 stopifnot(identical(dimnames(displayed),dimnames(bulk$z)),
           max(abs(displayed-bulk$z)) < 1e-10)
 # E: six literature-defined transcriptional scores, with one value per mouse in each plot.
-scores <- read.csv("分析结果/endothelial_scores/scores_by_mouse.csv", row.names = "Sample")
-tests <- read.csv("分析结果/endothelial_scores/TRALI_vs_LPS.csv")
+scores <- read.csv("data/endothelial_scores/scores_by_mouse.csv", row.names = "Sample")
+tests <- read.csv("data/endothelial_scores/TRALI_vs_LPS.csv")
 stopifnot(all(tests$method=="Two-sided unpaired Welch t-test"),
           all(tests$n_LPS==4L),all(tests$n_TRALI==4L),
           all(!tests$paired),all(!tests$var_equal),all(!tests$batch_adjusted),

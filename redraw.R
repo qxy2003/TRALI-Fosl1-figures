@@ -8,7 +8,7 @@ if (.Platform$OS.type == "windows") {
 }
 setwd(paste0("figure", args))
 script <- switch(args, "1" = "plot/02_plot_SCP.R",
-                 "2" = "作图代码/02_plot.R", "3" = "作图代码/05_plot.R")
+                 "2" = "plot/02_plot.R", "3" = "plot/05_plot.R")
 source(script, encoding = "UTF-8")
 
 # Figures 1 and 2 originally saved the combined plate. Also export their plot objects.

@@ -4,7 +4,7 @@ suppressPackageStartupMessages({library(ggplot2);library(cowplot);library(enrich
 options(Seurat.object.assay.version="v3",device=function(...) grDevices::pdf(NULL))
 out <- "figure"; singles <- file.path(out,"panels")
 dir.create(singles,recursive=TRUE,showWarnings=FALSE)
-read_result <- function(f) read.csv(file.path("分析结果",f),check.names=FALSE)
+read_result <- function(f) read.csv(file.path("data",f),check.names=FALSE)
 d <- read_result("key_targets_heatmap.csv"); reps <- read_result("key_targets.csv")
 terms <- read_result("GO_displayed.csv")
 ink <- "#20282A"; muted <- "#50676C"

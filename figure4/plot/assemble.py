@@ -6,7 +6,7 @@ import pymupdf as pdf
 
 root=Path(__file__).resolve().parents[1]
 out=root/"figure"
-temp=root/"作图代码/intermediate"
+temp=root/"plot/intermediate"
 trajectory=temp/"4C"
 def rect(page,box):
     x,y,w,h=box
@@ -22,7 +22,7 @@ with pdf.open(temp/"base.pdf") as src:
             panel.save(out/f"Figure4{tag}.pdf",garbage=4,deflate=True)
 with pdf.open(trajectory/"base_layout.pdf") as panel:
     boxes=json.loads((trajectory/"geometry.json").read_text())["by_subtype"]
-    for subtype,folder in [("gCap","4C_轨迹"),("aCap","4C_aCap")]:
+    for subtype in ("gCap", "aCap"):
         with pdf.open(trajectory/f"{subtype}_arrows.pdf") as arrows:
             assert len(arrows)==len(boxes[subtype])==2
             for index,box in enumerate(boxes[subtype]):
